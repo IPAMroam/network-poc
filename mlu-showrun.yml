@@ -1,0 +1,18 @@
+---
+- name: Test NXOS
+  hosts: hosts
+  
+  tasks:
+    - nxos_command:
+        provider: "{{ creds_nxapi }}"
+        commands: show vlan
+      register: vlan_out
+
+    - debug:
+        msg: "{{ vlan_out }}"
+
+    - nxos_vlan:
+        provider: "{{ creds_cli }}"
+        vlan_id: 50
+        name: blue
+        admin_state: up
