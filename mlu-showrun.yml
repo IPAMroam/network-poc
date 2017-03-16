@@ -1,5 +1,5 @@
 ---
-  vars:
+vars:
   cli:
     hosts: hosts
     username: admin_mlu6
