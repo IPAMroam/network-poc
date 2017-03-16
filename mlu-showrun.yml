@@ -2,17 +2,17 @@
 - name: Test NXOS
   hosts: hosts
   
-  tasks:
-    - nxos_command:
-        provider: "{{ creds_nxapi }}"
-        commands: show vlan
-      register: vlan_out
-
-    - debug:
-        msg: "{{ vlan_out }}"
-
-    - nxos_vlan:
-        provider: "{{ creds_cli }}"
-        vlan_id: 50
-        name: blue
-        admin_state: up
+  vars:
+  cli:
+    username: admin_mlu6
+    password: cbcdj123!
+    transport: cli
+    
+---
+- name: run show version on remote devices
+  nxos_command:
+    commands: 
+          - show version
+          - show interfaces 
+    provider: "{{ cli }}"
+    
