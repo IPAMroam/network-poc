@@ -1,4 +1,5 @@
 ---
+- name: Test NXOS
 vars:
   cli:
     hosts: hosts
@@ -6,7 +7,7 @@ vars:
     password: cbcdj123!
     transport: cli
     
-- name: Test NXOS
+tasks:
   nxos_command:
     commands: 
           - show version
