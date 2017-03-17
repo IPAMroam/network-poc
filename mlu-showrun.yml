@@ -8,7 +8,6 @@ vars:
     password: cbcdj123!
     transport: cli
 
----
 - name: run show version on remote devices
   nxos_command:
     commands: show version
