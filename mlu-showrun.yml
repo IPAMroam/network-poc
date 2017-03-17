@@ -1,16 +1,16 @@
 ---
 - name: Test NXOS
-vars:
-  cli:
-    hosts: hosts
-    username: admin_mlu6
-    password: cbcdj123!
-    transport: cli
+  vars:
+    cli:
+      hosts: hosts
+      username: admin_mlu6
+      password: cbcdj123!
+      transport: cli
     
-tasks:
-  nxos_command:
-    commands: 
+  tasks:
+    nxos_command:
+      commands: 
           - show version
           - show interfaces 
-    provider: "{{ cli }}"
+      provider: "{{ cli }}"
     
