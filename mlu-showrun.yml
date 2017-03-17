@@ -1,16 +1,23 @@
 ---
-- name: Test NXOS
+
+- name: command testing
+  hosts: hosts
+  connection: local
+  gather_facts: no
+
   vars:
     cli:
-      hosts: hosts
       username: admin_mlu6
       password: cbcdj123!
       transport: cli
-    
+
   tasks:
-    nxos_command:
-      commands: 
-          - show version
-          - show interfaces 
+
+    # Get CLI raw text output for a given command
+    - nxos_command: command='show run interface mgmt0 | inc description' host={{ inventory_hostname }} text=true type=show
       provider: "{{ cli }}"
-    
+      
+    # Get structured JSON data for given command
+    - nxos_command: command='show interface Ethernet1/1' host={{ inventory_hostname }} type=show
+      provider: "{{ cli }}"
+ 
