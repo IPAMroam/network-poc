@@ -1,0 +1,19 @@
+---
+name: DHCP IP Helper Update
+hosts: pynet-rt1
+vars:
+  creds:
+      host: "{{ ansible_host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      
+  dhcp_interfaces:
+      - Vlan1
+      
+tasks:
+  - ios_facts:
+      provider: "{{ creds }}"
+      commands: 
+        - "show run interface {{ item }}"
+    with_items: "{{ dhcp_interfaces }}"
+    register: output
