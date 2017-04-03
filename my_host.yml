@@ -1,0 +1,27 @@
+[all:vars]
+ansible_connection=local
+# You will need to update this to your Python
+ansible_python_interpreter=/home/admin_mlu6/ansible/bin/python
+
+[local]
+localhost ansible_connection=local
+
+[servers]
+ansible_connection=smart
+ansible_python_interpreter=/home/admin_mlu6/applied_python_python/bin/python
+
+[cisco]
+pynet-rt1 ansible_host=10.0.99.2
+pynet-rt2 ansible_host=10.0.993
+
+[cisco:vars]
+username=admin_mlu6
+password=
+
+[arista]
+pynet-sw1 ansible_host=10.0.99.2
+
+[arista:vars]
+username=admin_mlu6
+password=
+
