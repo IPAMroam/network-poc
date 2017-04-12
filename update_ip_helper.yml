@@ -1,9 +1,9 @@
 ---
 name: DHCP IP Helper Update
-hosts: pynet-rt1
+hosts: HOSTS
 vars:
   creds:
-      host: "{{ ansible_host }}"
+      host: "{{ HOSTS }}"
       username: "{{ username }}"
       password: "{{ password }}"
       
