@@ -5,6 +5,5 @@
   gather_facts: no
   name: "Configure devices"
   nxos_command:
-  commands:
     - show version
     - show interfaces
