@@ -1,6 +1,5 @@
 --- 
-- 
-  connection: local
+- name: Check Info
   hosts: all
   gather_facts: no
   name: "Configure devices"
