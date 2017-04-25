@@ -1,0 +1,22 @@
+---
+- name: Test DHCP Helper
+  hosts: rtr1
+  vars:
+    creds:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+    dhcp_interfaces:
+        - Vlan314
+
+  tasks:
+    - nxos_facts:
+        provider: "{{ creds }}"
+      tags: facts_only
+
+    - nxos_command:
+        provider: "{{ creds }}"
+        commands:
+          - "show interfaces"
+        register: output
