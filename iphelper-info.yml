@@ -1,6 +1,6 @@
 ---
 - name: Test DHCP Helper
-  hosts: rtr1
+  hosts: hosts
   vars:
     creds:
         host: "{{ ansible_host }}"
@@ -12,11 +12,9 @@
 
   tasks:
     - nxos_facts:
-        provider: "{{ creds }}"
       tags: facts_only
 
     - nxos_command:
-        provider: "{{ creds }}"
         commands:
           - "show interfaces"
         register: output
